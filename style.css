@@ -1,0 +1,38 @@
+body {
+  background-image: url(green-gradient.png);
+  color: white;
+  text-align: center;
+  font-family: 'Robo Mono', monospace;
+}
+
+p {
+  font-size: 20px;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+img {
+  display: block;
+  margin: auto;
+}
+
+button {
+  color: white;
+  background-color: rgb(0, 180, 0);
+  font-family: 'Robo Mono', monospace;
+  padding: 10px;
+  border-style: solid;
+  border-radius: 20px;
+  border-width: 4px;
+  border-color: white;
+  transition-duration: 0.4s;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: green;
+}

@@ -10,20 +10,20 @@
 </head>
 
 <body>
-  <br>
-	<h1>Lime Clicker!</h1>
-	<img src="favicon.ico" height="200" width="200" onclick="clicker()">
+	<br>
+	<h1>Lime Clicker</h1>
+	<img src="assets/favicon.ico" height="200" width="200" onclick="clicker()">
 
       <p class="bold">Limes</p>
       <p id="limes">0</p>
-
       <p class="bold">Limes Per Click</p>
       <p id="lpc">0</p>
-
       <p class="bold">Limes Per Second</p>
       <p id="lps">0</p>
-      <button type="button" onclick="worker1Verification()" id="up1">Upgrade Limes Per Click:<br>Cost: 20 Limes<br>+1 Limes Per Click</button>
-      <button type="button" onclick="worker2Verification()" id="up2">Upgrade Limes Per Second:<br>Cost: 20 Limes<br>+1 Limes Per Second</button>
+      <!--Upgrades Start-->
+      <button type="button" onclick="upgrade1()" id="up1">Upgrade Limes Per Click:<br>Cost: 20 Limes<br>+1 Limes Per Click</button>
+      <button type="button" onclick="upgrade2()" id="up2">Upgrade Limes Per Second:<br>Cost: 20 Limes<br>+1 Limes Per Second</button>
+      <!--Upgrades End-->
       <br>
       <button type="button" onclick="reset()">Reset</button>
       <br>

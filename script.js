@@ -2,68 +2,49 @@
 let limes = 0;
 let lpc = 1;
 let lps = 0;
-let upgrade1Tracker = 0
-let upgrade2Tracker = 0
+let upgrade1Tracker = 0;
+let upgrade2Tracker = 0;
+let upgrade1price = 20;
+let upgrade2price = 20;
 //Declaring the HTMl elements in Javascript
 const counter = document.getElementById(`limes`);
 const upgrade1button = document.getElementById(`up1`)
 const upgrade2button = document.getElementById(`up2`)
-//Declaring Arrays
-const upgrade1price = [20, 40, 60, 80, 100]
-const upgrade2price = [60, 100, 140, 180, 220]
+//Decraring Arrays
+
 
 const clicker = () => {
-  limes = limes + lpc;
+  limes += lpc
   counter.innerText = limes;
-  console.log(limes)
 }
 
-//Workers update text of buttons
-
-const upgrade1Worker = () => {
-  let price1 = upgrade1price[upgrade1Tracker];
-  upgrade1Tracker = upgrade1Tracker + 1;
-  lpc = lpc + 1
-  let upgradeText1 = `Upgrade Limes Per Click:\nCost:   ${price1} Limes\n+1 Limes Per Click`;
-  upgrade1button.innerText = upgradeText1;
-}
-const upgrade2Worker = () => {
-  let price2 = upgrade2price[upgrade2Tracker];
-  upgrade2Tracker = upgrade2Tracker + 1;
-  let upgradeText2 = `Upgrade Limes Per Second:\nCost: ${price2} Limes\n+1 Limes Per Second`
-  upgrade2button.innerText = upgradeText2;
-}
-
-//Worker verifications prevent the updating from continuing
-//if the max level is reached
-
-const worker1Verification = () => {
-  if (upgrade1Tracker >= 4) {
-    let upgradeText1 = `Upgrade Limes Per Click:\nCost: Maxed Out\n+1 Limes Per Click`
-    upgrade1button.innerText = upgradeText1
+const upgrade1 = () => {
+  if (limes >= upgrade1price) {
+    limes -= upgrade1price;
+    lpc += 1;
+    upgrade1price += 20;
+    upgrade1button.innerHTML = `Upgrade Limes Per Click:<br>Cost: ${upgrade1price} Limes<br>+1 Limes Per Click`;
+    counter.innerText = limes;
   } else {
-    upgrade1Worker()
+    alert(`You don't have enough limes`)
   }
 }
 
-const worker2Verification = () => {
-  if (upgrade2Tracker >= 4) {
-    let upgradeText2 = `Upgrade Limes Per Second:\nCost: Maxed Out\n+1 Limes Per Click`
-    upgrade2button.innerText = upgradeText2
+const upgrade2 = () => {
+  if (limes  >= upgrade2price) {
+    limes -= upgrade2price;
+    lps += 1;
+    upgrade2price += 20;
+    upgrade2button.innerHTML = `Upgrade Limes Per Second:<br>Cost: ${upgrade2price} Limes<br>+1 Limes Per Second`;
+    counter.innerText = limes;
   } else {
-    upgrade2Worker()
+    alert(`You don't have enough limes`)
   }
 }
 
-//Reset should be fairly obvious
-
-const reset = () => {
-  limes = 0;
-  lpc = 1;
-  lps = 0;
-  upgrade1Tracker = 0;
-  upgrade2Tracker = 0;
-  counter.innerHTML = limes;
+const limesPerSecond = () => {
+  limes += lps
+  counter.innerText = limes;
 }
 
-console.log('You really gotta cheat? Sad.')
+setInterval(limesPerSecond, 1000)
